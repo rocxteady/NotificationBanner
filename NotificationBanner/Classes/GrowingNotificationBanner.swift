@@ -183,10 +183,12 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
                             leftView: UIView? = nil,
                             rightView: UIView? = nil,
                             style: BannerStyle = .info,
-                            colors: BannerColorsProtocol? = nil) {
+                            colors: BannerColorsProtocol? = nil,
+                            iconPosition: IconPosition = .center,
+                            sideViewSize: CGFloat = 24.0) {
         
         let subtitle: String? = (attributedSubtitle != nil) ? "" : nil
-        self.init(title: "", subtitle: subtitle, leftView: leftView, rightView: rightView, style: style, colors: colors)
+        self.init(title: "", subtitle: subtitle, leftView: leftView, rightView: rightView, style: style, colors: colors, iconPosition: iconPosition, sideViewSize: sideViewSize)
         titleLabel!.attributedText = attributedTitle
         subtitleLabel?.attributedText = attributedSubtitle
     }
