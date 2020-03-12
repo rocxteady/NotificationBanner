@@ -178,6 +178,19 @@ open class GrowingNotificationBanner: BaseNotificationBanner {
         }
     }
     
+    public convenience init(attributedTitle: NSAttributedString,
+                            attributedSubtitle: NSAttributedString? = nil,
+                            leftView: UIView? = nil,
+                            rightView: UIView? = nil,
+                            style: BannerStyle = .info,
+                            colors: BannerColorsProtocol? = nil) {
+        
+        let subtitle: String? = (attributedSubtitle != nil) ? "" : nil
+        self.init(title: "", subtitle: subtitle, leftView: leftView, rightView: rightView, style: style, colors: colors)
+        titleLabel!.attributedText = attributedTitle
+        subtitleLabel?.attributedText = attributedSubtitle
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
